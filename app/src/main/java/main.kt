@@ -7,9 +7,7 @@ import com.example.myapplication.com.example.myapplication.RemoteControl
 
 fun main()
 {
-    //val light = Light()
-    //light.on()
-
+    
     val myRemote = RemoteControl()
 
     val lighton = LightOnCommand()

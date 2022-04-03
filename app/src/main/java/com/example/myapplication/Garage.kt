@@ -1,13 +1,11 @@
-package com.example.myapplication
+package com.example.myapplication.com.example.myapplication
 
+class Garage {
 
-class GarageDoor {
-    
     fun on() {
-        println("Garage door open")
+        println("Garage door is open.")
     }
-
     fun off() {
-        println("Garage door close")
+        println("Garage door is closed.")
     }
 }

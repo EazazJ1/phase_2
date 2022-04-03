@@ -1,11 +1,11 @@
 package com.example.myapplication
 
  class Door {
-    fun on() {
-        println("Door Open")
+    fun lock() {
+        println("Door Lock")
     }
 
-    fun off() {
-        println("Door Closed")
+    fun unlock() {
+        println("Door Unlock")
     }
 }

@@ -5,7 +5,7 @@ import com.example.myapplication.*
 class RadioOnCommand : Command {
         var currentRadio: Radio? = null
 
-        fun setTV(inputRadio: Radio?) {
+        fun setRadio(inputRadio: Radio?) {
             currentRadio = inputRadio
         }
         override fun execute() {

@@ -11,9 +11,9 @@ class GarageDoorClosed: Command {
         currentDoor = inputGarage
     }
         override fun execute() {
-            currentDoor?.on()
+            currentDoor?.off()
         }
         override fun undo() {
-            currentDoor?.off()
+            currentDoor?.on()
         }
 }

@@ -34,6 +34,14 @@ class CommandSlot {
 
     fun undoButtonWasPressed() {
         lastCommand!!.undo()
+        if(slotState == true)
+        {
+            slotState = false
+        }
+        else if(slotState == false){
+            slotState = true
+        }
+
     }
 
     fun setOnCommand(inputOnCommand: Command?) {

@@ -12,6 +12,7 @@ class LightOffCommand : Command {
         }
         override fun execute() {
             currentLight?.off()
+
         }
         override fun undo() {
             currentLight?.on()

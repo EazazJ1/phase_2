@@ -1,16 +1,17 @@
 package com.example.myapplication
 
 class Doorbell : Subject {
-    var doorbell = false
-    private val observerList: MutableList<Observer?>
+    private var doorbell = false
+    private val observerList: MutableList<User?>
 
-    override fun registerObserver(o: Observer?)
+    override fun registerObserver(o: User?)
     {
         observerList.add(o)
     }
 
-    override fun removeObserver(o: Observer?) {
-        observerList.remove(o)
+    override fun removeObserver(index: Int) {
+        observerList.removeAt(index)
+        //observerList.remove()
     }
 
     override fun notifyObservers() {
@@ -36,5 +37,16 @@ class Doorbell : Subject {
     fun getDoorbellStatus(): Boolean?
     {
         return doorbell
+    }
+    fun displayObservers()
+    {
+
+        var i = 0
+        while(i < observerList.size)
+        {
+            var print = observerList[i]?.getUsername1()
+            println("$i. $print")
+            ++i
+        }
     }
 }

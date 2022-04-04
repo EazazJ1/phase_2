@@ -3,9 +3,9 @@ package com.example.myapplication
 //observer
 class User(doorbell: Doorbell, var name:String) : Observer
 {
-    var doorbell : Doorbell? = null
-    var doorbellStatus = false
-    var username:String
+    private var doorbell : Doorbell? = null
+    private var doorbellStatus = false
+    private var username: String? = null
 
     override fun update()
     {
@@ -34,6 +34,14 @@ class User(doorbell: Doorbell, var name:String) : Observer
         println("ALERT FOR $username: The door has been answered")
     }
 
+//    fun displayUser() {
+//        println("$username")
+//    }
+
+    fun getUsername1(): String?{
+        val returnname = username
+        return returnname
+    }
 
     init {
         this.doorbell = doorbell

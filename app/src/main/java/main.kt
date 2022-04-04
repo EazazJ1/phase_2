@@ -155,6 +155,12 @@ fun main()
 
     myRemote.setSlot(shuttersSlot)
 
+    val newDoorbell = Doorbell()
+    val newUser = User(newDoorbell, "bob")
+    //val newUser2 = User(newDoorbell, "sally")
+
+    newDoorbell.registerObserver(newUser)
+
 
     var repeat = true
     while(repeat) {
@@ -169,7 +175,8 @@ fun main()
         println("6.TV")
         println("7.Radio")
         println("8.Users")
-        println("9..Exit")
+        println("9.Undo")
+        println("10.Exit")
 9
         val deviceInput = readLine()!!
 
@@ -225,8 +232,11 @@ fun main()
             val input = readLine()!!
             if (input == "1") {
                 //ring bell
+                newDoorbell.doorbellRang()
+
             } else if (input == "2") {
                 //answer bell
+                newDoorbell.doorbellAnswered()
             } else {
                 println("Invalid Input")
             }
@@ -261,10 +271,51 @@ fun main()
                 println("Invalid Input")
             }
         } else if (deviceInput == "8" || deviceInput == "Users") {
+            var loopCondition = true
+            while(loopCondition)
+            {
+                println("1. View users")
+                println("2. Add user")
+                println("3. Remove users")
+                println("4. Go back")
+                val input = readLine()
+
+                when(input)
+                {
+                    "1" -> {
+                        newDoorbell.displayObservers()
+                    }
+                    "2" -> {
+                        println("Please input the user name")
+                        val addUserInput = readLine()
+                        val newUser = addUserInput?.let { User(newDoorbell, it) }
+                        newDoorbell.registerObserver(newUser)
+                    }
+                    "3" -> {
+                        println("Please input the index of the user to remove")
+                        val addUserInput = readLine()
+                        val convert = addUserInput?.toInt()
+                        //val removeUser = addUserInput?.let { User(newDoorbell, it) }
+                        if (convert != null) {
+                            newDoorbell.removeObserver(convert)
+                        }
+                    }
+                    "4" -> {
+                        loopCondition = false
+                    }
+                }
+            }
+        }
+        else if (deviceInput == "9" || deviceInput == "Undo") {
+            myRemote.undoButtonWasPressed()
 
         }
-        else if (deviceInput == "9" || deviceInput == "Exit") {
+        else if (deviceInput == "10" || deviceInput == "Exit") {
             repeat = false
+        }
+        else
+        {
+            println("Invalid Input")
         }
     }
 //   val myRemote = RemoteControl()

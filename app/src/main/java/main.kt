@@ -25,4 +25,16 @@ fun main()
     myRemote.toggleSlot(0)
     myRemote.toggleSlot(0)
 
+    val newDoorbell = Doorbell()
+    val newUser = User(newDoorbell, "bob")
+    val newUser2 = User(newDoorbell, "sally")
+
+    newDoorbell.registerObserver(newUser)
+    newDoorbell.registerObserver(newUser2)
+    newDoorbell.removeObserver(newUser)
+
+    //have options for rang and answered just for demo purposes
+    newDoorbell.doorbellRang()
+    newDoorbell.doorbellAnswered()
+
 }

@@ -1,4 +1,6 @@
-package com.example.myapplication.com.example.myapplication
+package com.example.myapplication
+
+import com.example.myapplication.*
 
 class RemoteControl {
 
@@ -20,6 +22,21 @@ class RemoteControl {
                 } else {
                     remoteSlots[slotNum].OnButtonWasPressed()
                     remoteSlots[slotNum].setSlotState(true)
+                }
+                lastSlot = remoteSlots[slotNum]
+            }
+        }
+    }
+
+    fun toggleSlot(slotNum: Int, slotAdjust: Int) {
+        if (remoteSlots[slotNum].getSlotUsed() == false) {
+            println("Slot Unused.")
+        } else {
+            if (remoteSlots.size > slotNum) {
+                if (slotAdjust == 0) {
+                    remoteSlots[slotNum].OnButtonWasPressed()                   
+                } else if (slotAdjust == 1) {
+                    remoteSlots[slotNum].OffButtonWasPressed()                   
                 }
                 lastSlot = remoteSlots[slotNum]
             }

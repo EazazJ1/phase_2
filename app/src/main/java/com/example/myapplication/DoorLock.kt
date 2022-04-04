@@ -1,5 +1,4 @@
-package com.example.myapplication.com.example.myapplication
-
+package com.example.myapplication
 import com.example.myapplication.*
 
 class DoorLockCommand : Command {

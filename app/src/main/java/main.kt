@@ -1,15 +1,12 @@
 package com.example.myapplication
 
-import com.example.myapplication.com.example.myapplication.CommandSlot
-import com.example.myapplication.com.example.myapplication.LightOffCommand
-import com.example.myapplication.com.example.myapplication.LightOnCommand
-import com.example.myapplication.com.example.myapplication.RemoteControl
+import com.example.myapplication.*
 
 fun main()
 {
     
     val myRemote = RemoteControl()
-
+    //lights on and off
     val lighton = LightOnCommand()
     val lightoff = LightOffCommand()
 
@@ -21,9 +18,26 @@ fun main()
     val lightSlot = CommandSlot(lighton, lightoff)
 
     myRemote.setSlot(lightSlot)
+    //lights brightness
+    val increaseBrightness = IncreaceBrightnessCommand()
+    val decreaseBrightness = DecreaseBrightnessCommand()
+
+    increaseBrightness.setLight(light)
+    decreaseBrightness.setLight(light)
+
+    val lightAdjustment = CommandSlot(increaseBrightness, decreaseBrightness)
+
+    myRemote.setSlot(lightAdjustment)
 
     myRemote.toggleSlot(0)
-    myRemote.toggleSlot(0)
+    //myRemote.toggleSlot(0)
+
+    myRemote.toggleSlot(1,0)
+    myRemote.toggleSlot(1,0)
+    myRemote.toggleSlot(1,0)
+    myRemote.toggleSlot(1,0)
+    myRemote.toggleSlot(1,1)
+
 
     val newDoorbell = Doorbell()
     val newUser = User(newDoorbell, "bob")
